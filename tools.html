@@ -55,27 +55,63 @@
         .linear-link:hover {
             background-color: #3498db;
         }
+
+        /* Custom Styles for Button Filters */
+        .button-filters {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .button-filter {
+            cursor: pointer;
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 5px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .button-filter:hover {
+            background-color: #27ae60;
+        }
     </style>
     <script>
         // Add your custom scripts here
         document.addEventListener('DOMContentLoaded', function () {
             const selectBars = document.querySelectorAll('.custom-select-item');
             const linearSets = document.querySelectorAll('.linear-links');
+            const buttonFilters = document.querySelectorAll('.button-filters');
 
             selectBars.forEach((selectBar, index) => {
                 selectBar.addEventListener('click', () => {
-                    // Hide all linear sets
+                    // Hide all linear sets and button filters
                     linearSets.forEach((linearSet) => {
                         linearSet.style.display = 'none';
                     });
 
-                    // Show the corresponding linear set
+                    buttonFilters.forEach((buttonFilter) => {
+                        buttonFilter.style.display = 'none';
+                    });
+
+                    // Show the corresponding linear set and button filter
                     linearSets[index].style.display = 'flex';
+                    buttonFilters[index].style.display = 'flex';
+
+                    // If Option 1 is clicked, show all button filters
+                    if (index === 0) {
+                        buttonFilters.forEach((buttonFilter) => {
+                            buttonFilter.style.display = 'flex';
+                        });
+                    }
                 });
             });
         });
     </script>
-    <title>TriSpace - About</title>
+    <title>TriSpace - Tools</title>
 </head>
 
 <body>
@@ -84,7 +120,7 @@
 
     <div class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
-            <a href="" class="navbar-brand text-info">About TriSpace</a>
+            <a href="" class="navbar-brand text-info">TriSpace Tools</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"><span
                     class="navbar-toggler-icon drawer-lines">&#8801;</span></button>
@@ -111,30 +147,83 @@
 
     <!-- Custom Select Bars -->
     <div class="custom-select-bar">
-        <div class="custom-select-item">Option 1</div>
-        <div class="custom-select-item">Option 2</div>
-        <div class="custom-select-item">Option 3</div>
-        <div class="custom-select-item">Option 4</div>
-        <div class="custom-select-item">Option 5</div>
+        <div class="custom-select-item">Show All</div>
+        <div class="custom-select-item">Workspace</div>
+        <div class="custom-select-item">Products</div>
+        <div class="custom-select-item">Partners</div>
+        <div class="custom-select-item">Docs</div>
     </div>
 
     <!-- Custom Linear Links Sets -->
     <div class="linear-links">
         <!-- Linear Links Set for Option 1 -->
-        <a href="#section1" class="linear-link">Section 1.1</a>
-        <a href="#section2" class="linear-link">Section 1.2</a>
-        <a href="#section3" class="linear-link">Section 1.3</a>
+        
     </div>
 
     <div class="linear-links">
         <!-- Linear Links Set for Option 2 -->
-        <a href="#section4" class="linear-link">Section 2.1</a>
-        <a href="#section5" class="linear-link">Section 2.2</a>
-        <a href="#section6" class="linear-link">Section 2.3</a>
+        <a href="https://vp.trispace.xyz" class="linear-link">vPanel Login</a>
+        <a href="https://cp.trispace.xyz" class="linear-link">cPanel Login</a>
+        <a href="https://weprobid.trispace.xyz" class="linear-link">Weprovid</a>
     </div>
 
     <div class="linear-links">
         <!-- Linear Links Set for Option 3 -->
-        <a href="#section7" class="linear-link">Section 3.1</a>
-
+        <a href="https://trispace.xyz/proucts#cp" class="linear-link">cPanel Product</a>
+         
+        <a href="https://trispace.xyz/product#weprobid" class="linear-link">Weprovid Product</a>
+        <a href="https://trispace.xyz/product#gfx" class="linear-link">GFX Product</a>
     </div>
+
+    <div class="linear-links">
+        <!-- Linear Links Set for Option 4 -->
+        <a href="https://shop.garxu.xyz" class="linear-link">garxu.xyz</a>
+       
+    </div>
+
+    <div class="linear-links">
+        <!-- Linear Links Set for Option 5 -->
+        <a href="https://docs.trispace.xyz" class="linear-link">Full Docs</a>
+      
+    </div>
+
+    <!-- Custom Button Filters -->
+    <div class="button-filters">
+        <!-- Button Filters Set for Option 1 -->
+        
+    </div>
+
+    <div class="button-filters">
+        <!-- Button Filters Set for Option 2 -->
+        <button class="button-filter">vPanel Login</button>
+        <button class="button-filter">cPanel Login</button>
+        <button class="button-filter">Weprovid</button>
+    </div>
+
+    <div class="button-filters">
+        <!-- Button Filters Set for Option 3 -->
+        <button class="button-filter">cPanel Product</button>
+        <button class="button-filter">Weprovid Product</button>
+        <button class="button-filter">GFX Product</button>
+    </div>
+
+    <div class="button-filters">
+        <!-- Button Filters Set for Option 4 -->
+        <button class="button-filter">Shop Garxu</button>
+        <button class="button-filter">none</button>
+        <button class="button-filter">none</button>
+    </div>
+
+    <div class="button-filters">
+        <!-- Button Filters Set for Option 5 -->
+        <button class="button-filter">Full Docs</button>
+        <button class="button-filter">soon</button>
+        <button class="button-filter">soon</button>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+    </html>
+    
