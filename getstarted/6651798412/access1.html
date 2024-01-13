@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TriSpace - Getstarted</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
         }
 
         .container {
-            background-color: #fff;
+            background-color: #333;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         form {
@@ -28,14 +29,13 @@
         }
 
         label {
-            margin-top: 10px;
+            margin-bottom: 8px;
         }
 
         input {
             padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
+            margin-bottom: 16px;
+            border: 1px solid #555;
             border-radius: 4px;
         }
 
@@ -47,12 +47,17 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
+    <title>TriSpace - Getstarted</title>
 </head>
 <body>
     <div class="container">
         <form id="signupForm">
-            <h1>Signup</h1>
+            <h2>Signup</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
@@ -66,40 +71,21 @@
         </form>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
     <script>
-        // Replace the following with your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCRYKuzjlZB0PzcouawWcy9teoszdmv08o",
-            authDomain: "garxu-8a8dc.firebaseapp.com",
-            projectId: "garxu-8a8dc",
-            storageBucket: "garxu-8a8dc.appspot.com",
-            messagingSenderId: "162031945703",
-            appId: "1:162031945703:web:8d07bd574470e9052f9f42"
-        };
-
-        firebase.initializeApp(firebaseConfig);
-
         function signup() {
-            const username = document.getElementById("username").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            // Get user input values
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
 
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Signed in
-                    const user = userCredential.user;
-                    console.log("Signup successful:", user);
+            // Here you would add code to send the user's information to the backend for processing.
+            // You may use AJAX, fetch, or any other method to communicate with the server.
 
-                    // Redirect to the dashboard page
-                    window.location.href = "https://dash.trispace.xyz/";
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.error("Signup error:", errorCode, errorMessage);
-                });
+            // For demonstration purposes, just log the user information
+            console.log('Username:', username);
+            console.log('Email:', email);
+
+            // After successful signup, redirect to the dashboard page.
+            window.location.href = 'dashboard.html';
         }
     </script>
 </body>
