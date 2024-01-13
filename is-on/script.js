@@ -4,11 +4,26 @@ function toggleNavbar() {
     navbar.style.display = (navbar.style.display === 'block') ? 'none' : 'block';
 }
 
-// Function to set and display the user's username (replace 'John' with the actual username)
-function setUserInfo() {
-    const usernameDisplay = document.getElementById('usernameDisplay');
-    usernameDisplay.textContent = 'Welcome, John'; // Replace 'John' with the actual username or use dynamic data from your backend
+// Function to get URL parameters
+function getUrlParameter(name) {
+    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-// Call the setUserInfo function to display the user's username if signed in
-setUserInfo();
+// Function to set and display the user's username from the URL
+function setUserInfoFromURL() {
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    const usernameFromURL = getUrlParameter('username');
+
+    if (usernameFromURL) {
+        usernameDisplay.textContent = 'Welcome, ' + usernameFromURL;
+    }
+}
+
+// Call the setUserInfoFromURL function to display the username from the URL
+setUserInfoFromURL();
+// After successful signup, redirect to home page with username in the URL
+const username = /* get the username from your signup process */;
+window.location.href = 'https://trispace.xyz/getstarted/6651798412/access1' + encodeURIComponent(username);
